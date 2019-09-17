@@ -12,7 +12,7 @@ console.log(path.join(__dirname,'../..'));
 
 const partialsPath=path.join(__dirname,'../partials');
 console.log(partialsPath);
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 app.set('view engine','hbs');
 hbs.registerPartials(partialsPath);
 app.get('',(req,res)=>{
@@ -85,4 +85,4 @@ app.get('*',(req,res)=>{
     error:'Page not founds'})
     
 });
-app.listen(PORT,()=>console.log('server is listening to port 3000'));
+app.listen(PORT,()=>console.log('server is listening to port'+PORT));
